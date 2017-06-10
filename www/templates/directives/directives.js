@@ -17,7 +17,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('buy');
-                    height.style.height = (window.screen.height+window.screenTop)+ 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 'px';
                     var trade = echarts.init(document.getElementById('buy'));
                     var geoCoordMap = {
                         "海门": [121.15, 31.89],
@@ -3327,18 +3327,22 @@ angular.module('rsc.directive', [])
                             }]
                     }
                     // 随机数
-                    function fRandomBy(under, over){
-                        switch(arguments.length){
-                            case 1: return parseInt(Math.random()*under+1);
-                            case 2: return parseInt(Math.random()*(over-under+1) + under);
-                            default: return 0;
+                    function fRandomBy(under, over) {
+                        switch (arguments.length) {
+                            case 1:
+                                return parseInt(Math.random() * under + 1);
+                            case 2:
+                                return parseInt(Math.random() * (over - under + 1) + under);
+                            default:
+                                return 0;
                         }
                     }
+
                     // 随机数
-                    angular.forEach(json.nodes,function (data) {
+                    angular.forEach(json.nodes, function (data) {
                         console.log(data)
-                        console.log('11',fRandomBy(100, window.screen.height))
-                        console.log('22',fRandomBy(100, window.screen.height))
+                        console.log('11', fRandomBy(100, window.screen.height))
+                        console.log('22', fRandomBy(100, window.screen.height))
 
                     })
                     // console.log('json',JSON.stringify(json))
@@ -8138,12 +8142,12 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 抢单
+     * 动力煤
      */
-    .directive("grap", ['$http', '$log', function ($http, $log) {
+    .directive("donglimei", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='grap' style='width: 100px;height: 100px'></div>",
+            template: "<div id='donglimei' style='width: 100px;height: 100px'></div>",
             scope: {
                 'data': '='
             },
@@ -8151,15 +8155,13 @@ angular.module('rsc.directive', [])
             controller: function ($scope, $ionicLoading) {
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
-                    var height = document.getElementById('buy');
-                    // height.style.height = (window.screen.height+window.screenTop)+ 'px';
-                    var grap = echarts.init(document.getElementById('grap'));
+                    var donglimei = echarts.init(document.getElementById('donglimei'));
                     var option = {
 
                         series: [
                             {
-                                name:'访问来源',
-                                type:'pie',
+                                name: '访问来源',
+                                type: 'pie',
                                 radius: ['50%', '70%'],
                                 avoidLabelOverlap: false,
                                 label: {
@@ -8180,10 +8182,10 @@ angular.module('rsc.directive', [])
                                         show: false
                                     }
                                 },
-                                data:[
-                                    {value:335, name:'直接访问'},
-                                    {value:310, name:'邮件营销'},
-                                    {value:234, name:'联盟广告'},
+                                data: [
+                                    {value: 335, name: '直接访问'},
+                                    {value: 310, name: '邮件营销'},
+                                    {value: 234, name: '联盟广告'},
 
 
                                 ]
@@ -8191,17 +8193,18 @@ angular.module('rsc.directive', [])
                         ]
                     };
 
-                    grap.setOption(option);
+                    donglimei.setOption(option);
                 })
             }
         };
-    }])    /**
-     * 抢单
+    }])
+    /**
+     * 无烟煤
      */
-    .directive("grap1", ['$http', '$log', function ($http, $log) {
+    .directive("wuyanmei", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='grap1' style='width: 100px;height: 100px'></div>",
+            template: "<div id='wuyanmei' style='width: 100px;height: 100px'></div>",
             scope: {
                 'data': '='
             },
@@ -8209,13 +8212,13 @@ angular.module('rsc.directive', [])
             controller: function ($scope, $ionicLoading) {
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
-                    var grap1 = echarts.init(document.getElementById('grap1'));
+                    var wuyanmei = echarts.init(document.getElementById('wuyanmei'));
                     var option = {
 
                         series: [
                             {
-                                name:'访问来源',
-                                type:'pie',
+                                name: '访问来源',
+                                type: 'pie',
                                 radius: ['50%', '70%'],
                                 avoidLabelOverlap: false,
                                 label: {
@@ -8236,10 +8239,10 @@ angular.module('rsc.directive', [])
                                         show: false
                                     }
                                 },
-                                data:[
-                                    {value:335, name:'直接访问'},
-                                    {value:310, name:'邮件营销'},
-                                    {value:234, name:'联盟广告'},
+                                data: [
+                                    {value: 335, name: '直接访问'},
+                                    {value: 310, name: '邮件营销'},
+                                    {value: 234, name: '联盟广告'},
 
 
                                 ]
@@ -8247,7 +8250,435 @@ angular.module('rsc.directive', [])
                         ]
                     };
 
-                    grap1.setOption(option);
+                    wuyanmei.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 喷吹煤
+     */
+    .directive("penchuimei", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='penchuimei' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var penchuimei = echarts.init(document.getElementById('penchuimei'));
+                    var option = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'bottom'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '30',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+                                data: [
+                                    {value: 335, name: '直接访问'},
+                                    {value: 310, name: '邮件营销'},
+                                    {value: 234, name: '联盟广告'},
+
+
+                                ]
+                            }
+                        ]
+                    };
+
+                    penchuimei.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 炼焦煤
+     */
+    .directive("lianjiaomei", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='lianjiaomei' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var lianjiaomei = echarts.init(document.getElementById('lianjiaomei'));
+                    var option = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'bottom'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '30',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+                                data: [
+                                    {value: 335, name: '直接访问'},
+                                    {value: 310, name: '邮件营销'},
+                                    {value: 234, name: '联盟广告'},
+
+
+                                ]
+                            }
+                        ]
+                    };
+
+                    lianjiaomei.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 原煤
+     */
+    .directive("yuanmei", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='yuanmei' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var yuanmei = echarts.init(document.getElementById('yuanmei'));
+                    var option = {
+
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'bottom'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '30',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+                                data: [
+                                    {value: 335, name: '直接访问'},
+                                    {value: 310, name: '邮件营销'},
+                                    {value: 234, name: '联盟广告'},
+
+
+                                ]
+                            }
+                        ]
+                    };
+
+                    yuanmei.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 浏览量
+     */
+    .directive("browse", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='browse' style='width: 400px;height: 200px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var browse = echarts.init(document.getElementById('browse'));
+                    var option = {
+
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: []
+                        },
+                        grid: {
+                            left: '1%',
+                            right: '4%',
+                            bottom: '1%',
+                            containLabel: false,
+
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                            show: false
+                        },
+                        yAxis: {
+                            type: 'value',
+                            boundaryGap: [],
+                            show: false
+                        },
+                        series: [
+                            {
+                                name: '邮件营销',
+                                type: 'line',
+                                stack: '总量',
+                                data: [120, 132, 101, 134, 90, 230, 210]
+                            },
+                            {
+                                name: '联盟广告',
+                                type: 'line',
+                                stack: '总量',
+                                data: [220, 182, 191, 234, 290, 330, 310]
+                            },
+                            {
+                                name: '视频广告',
+                                type: 'line',
+                                stack: '总量',
+                                data: [150, 232, 201, 154, 190, 330, 410]
+                            },
+                            {
+                                name: '直接访问',
+                                type: 'line',
+                                stack: '总量',
+                                data: [320, 332, 301, 334, 390, 330, 320]
+                            }
+                        ]
+                    };
+
+                    browse.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 浏览量
+     */
+    .directive("money", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='money' style='width: 400px;height: 250px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var money = echarts.init(document.getElementById('money'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '4%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            show: false,
+                            type: 'value',
+                            boundaryGap: [0]
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: [
+                                {
+                                    value: '信用付款',
+                                    textStyle: {
+                                        fontSize: 12,
+                                        color: '#5E86A3'
+                                    }
+                                },{
+                                    value: '商业承兑',
+                                    textStyle: {
+                                        fontSize: 12,
+                                        color: '#3069BE'
+                                    }
+                                },{
+                                    value: '银行承兑',
+                                    textStyle: {
+                                        fontSize: 12,
+                                        color: '#d48265'
+                                    }
+                                },{
+                                    value: '现金付款',
+                                    textStyle: {
+                                        fontSize: 12,
+                                        color: '#54D475'
+                                    }
+                                },{
+                                    value: '全部',
+                                    textStyle: {
+                                        fontSize: 12,
+                                        color: '#91c7ae'
+                                    }
+                                }
+                                ]
+                        },
+                        series: [
+                            {
+                                type: 'bar',
+                                data: [
+                                    {
+                                        value: '19325',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#5E86A3',
+                                            }
+                                        }
+                                    }, {
+                                        value: '23438',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#3069BE',
+                                            }
+                                        }
+                                    }, {
+                                        value: '31000',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#d48265',
+                                            }
+                                        }
+                                    }, {
+                                        value: '121594',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#54D475',
+                                            }
+                                        }
+                                    }, {
+                                        value: '134141',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#91c7ae',
+                                            }
+                                        }
+                                    }]
+                            }
+                        ]
+                    };
+
+                    money.setOption(option);
+                })
+            }
+        };
+    }])
+    /**
+     * 浏览量
+     */
+    .directive("change", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='change' style='width: 400px;height: 230px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var change = echarts.init(document.getElementById('change'));
+                    var option = {
+                        color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae'],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '4%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            show:false,
+                            type: 'category',
+                            data: []
+
+                        },
+                        yAxis: {
+                            show:false,
+                            type: 'value',
+
+                        },
+                        series: [{
+                            type: 'line',
+                            data: [0, 120, 210, 130, 200,62,0],
+                            areaStyle: {
+                                normal: {
+
+                                    color: '#DCB42F',
+                                    opacity :0.6,
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+
+                                    color: '#DCB42F',
+                                    opacity :0.6,
+                                }
+                            }
+                        }]
+                    };
+
+                    change.setOption(option);
                 })
             }
         };
