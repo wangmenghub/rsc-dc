@@ -1,52 +1,71 @@
 <ion-view hide-nav-bar="true" view-title="数据中心">
-	<!--中间内容区-->
-	<ion-content>
-		<div style="z-index: 8; position: absolute;top: 80px;">
-			<span>抢单</span>
-			<donglimei></donglimei>
-			<span>动力煤</span>
-		</div>
-		<div style="z-index: 7; position: absolute;top: 80px;left: 80px">
-			<wuyanmei></wuyanmei>
-			<span>无烟煤</span>
-		</div>
-		<div style="z-index: 6; position: absolute;top: 80px;left: 160px">
-			<penchuimei></penchuimei>
-			<span>喷吹煤</span>
-		</div>
-		<div style="z-index: 5; position: absolute;top: 80px;left: 240px">
-			<lianjiaomei></lianjiaomei>
-			<span>炼焦煤</span>
-		</div>
-		<div style="z-index: 4; position: absolute;top: 80px;left: 320px">
-			<yuanmei></yuanmei>
-			<span>原煤</span>
-		</div>
-		<!--浏览量-->
-		<div style="z-index: 3; position: absolute;top: 250px;">
-			<span>浏览 180</span>
-			<browse></browse>
-		</div>
-		<!--交易金额-->
-		<div style="z-index: 2; position: absolute;top: 420px;">
-			<span>金额 108万</span>
-			<money></money>
-		</div>
-		<!--转化-->
-		<div style="z-index: 1; position: absolute;top: 570px;">
-			<span>转化</span>
-			<change></change>
-		</div>
-		<div style="z-index: 0;">
-			<buy></buy>
-		</div>
-	</ion-content>
-	<div class="tabs">
-		<a class="tab-item active">采购数据</a>
-		<a class="tab-item " ui-sref="sell">销售数据</a>
-		<a class="tab-item " ui-sref="pass">物流数据</a>
-		<a class="tab-item " ui-sref="car">司机数据</a>
-		<a class="tab-item " ui-sref="relation">企业关系</a>
-		<a class="tab-item " ui-sref="market">市场分布</a>
-	</div>
+  <div class="tabs tabs-top bg-deep-blue tabs-top-dc">
+    <a class="tab-item active">煤炭</a>
+    <a class="tab-item " ui-sref="">矿粉</a>
+    <a class="tab-item " ui-sref="">耐火材料</a>
+    <a class="tab-item " ui-sref="">合金</a>
+    <a class="tab-item " ui-sref="">铁合金</a>
+    <a class="tab-item " ui-sref="">钢铁</a>
+  </div>
+  <!--中间内容区-->
+  <ion-content class="has-subheader has-subheader-dc">
+    <div class="main">
+      <div class="main-first">
+        <h4 class="fixed text-yellow" style="z-index: 12; top: 40px; left: 30px">抢单</h4>
+        <div class="fixed" style="z-index: 11; left: 20px; ">
+          <donglimei></donglimei>
+          <span class="text-green">动力煤</span>
+        </div>
+        <div class="fixed" style="z-index: 10; left: 100px;">
+          <wuyanmei></wuyanmei>
+          <span class="text-red">无烟煤</span>
+        </div>
+        <div class="fixed" style="z-index: 9; left: 180px;">
+          <penchuimei></penchuimei>
+          <span class="text-purple">喷吹煤</span>
+        </div>
+        <div class="fixed" style="z-index: 8; left: 260px;">
+          <lianjiaomei></lianjiaomei>
+          <span class="text-blue">炼焦煤</span>
+        </div>
+        <div class="fixed" style="z-index: 7; left: 340px;">
+          <yuanmei></yuanmei>
+          <span class="text-brown">原煤</span>
+        </div>
+      </div>
+      <!--浏览量-->
+      <div class="main-second">
+        <h4 class="fixed text-yellow" style="z-index: 6;"> 浏览 180</h4>
+        <div class="fixed" style="z-index: 5;">
+          <browse></browse>
+        </div>
+      </div>
+      <!--交易金额-->
+      <div class="main-third">
+        <h4 class="fixed text-yellow" style="z-index: 4;"> 金额 108万</h4>
+        <div class="fixed" style="z-index: 3;">
+          <money></money>
+        </div>
+      </div>
+      <!--转化-->
+      <div class="main-fourth">
+        <h4 class="fixed text-yellow" style="z-index: 2;"> 转化</h4>
+        <div class="fixed" style="z-index: 1;">
+          <change></change>
+        </div>
+      </div>
+    </div>
+    <div style="z-index: 0;">
+      <buy></buy>
+    </div>
+
+  </ion-content>
+  <div class="tabs tabs-bottom bg-yellow">
+    <a class="tab-item active">采购数据</a>
+    <a class="tab-item " ui-sref="sell">销售数据</a>
+    <a class="tab-item " ui-sref="pass">物流数据</a>
+    <a class="tab-item " ui-sref="car">司机数据</a>
+    <a class="tab-item " ui-sref="relation">企业关系</a>
+    <a class="tab-item " ui-sref="market">市场分布</a>
+  </div>
 </ion-view>

@@ -1,0 +1,146 @@
+/* Empty. Add your own CSS if you like */
+
+body {
+    font-family: verdana, 'Hiragino Sans GB', 'Microsoft Yahei', 微软雅黑, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: verdana, 'Hiragino Sans GB', 'Microsoft Yahei', 微软雅黑, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+.h1 {
+    font-size: 24px;
+}
+
+h2,
+.h2 {
+    font-size: 18px;
+}
+
+h3,
+.h3 {
+    font-size: 16px;
+}
+
+h4,
+.h4 {
+    font-size: 14px;
+}
+
+h5,
+.h5 {
+    font-size: 12px;
+}
+
+h6,
+.h6 {
+    font-size: 11px;
+}
+
+/*背景颜色*/
+
+.bg-deep-blue {
+    background: rgb(64, 74, 89);
+    color: #efd687;
+}
+
+.bg-yellow {
+    color: #8b572a;
+    background: -webkit-linear-gradient(#ffefb5, #ffe384);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#ffefb5, #ffe384);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#ffefb5, #ffe384);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(#ffefb5, #ffe384);
+    /* 标准的语法 */
+}
+
+
+/*文字颜色*/
+
+.text-red {
+    color: #c33430;
+}
+
+.text-blue {
+    color: #367df4;
+}
+
+.text-green {
+    color: #91c7af;
+}
+
+.text-brown {
+    color: #8B572A;
+}
+
+.text-purple {
+    color: #6e5fa9;
+}
+
+.text-yellow {
+    color: #efd687;
+}
+
+/*采购数据*/
+.fixed {
+  position: absolute;
+}
+.main {
+  padding-left: 30px;
+}
+.main-first {
+  text-align: center;
+}
+.main-first div.fixed {
+  top: 80px;
+}
+.main-second h4.fixed {
+  top: 240px;
+}
+.main-second div.fixed {
+  top: 190px;
+}
+.main-third h4.fixed {
+  top: 420px;
+}
+.main-third div.fixed {
+  top: 420px;
+  left: 20px;
+}
+.main-fourth h4.fixed {
+  top: 660px;
+}
+.main-fourth div.fixed {
+  top: 620px;
+  left: 20px;
+}
+/*头部、底部导航*/
+.tabs.tabs-top.tabs-top-dc {
+  top: 0;
+  border-color: rgb(64, 74, 89);
+}
+.tabs-top-dc .tab-item.active {
+    border-bottom: 2px solid #efd687;
+}
+.has-subheader-dc {
+  top: 44px;
+}
+.tab-item {
+  font-weight: normal;
+}
+.tabs-bottom .tab-item.active {
+  background: #ecd89a;
+}
