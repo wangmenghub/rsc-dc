@@ -3081,7 +3081,7 @@ angular.module('rsc.directive', [])
                     var option = {
                         backgroundColor: '#404a59',
                         title: {
-                            text: '司机运输统计',
+                            text: '全国司机运输线路详情',
                             left: 'center',
                             textStyle: {
                                 color: '#fff'
@@ -8422,6 +8422,14 @@ angular.module('rsc.directive', [])
                     };
 
                     yuanmei.setOption(option);
+
+                    // setInterval(function () {
+                    //     console.log('111',option.series[0].data[0].value)
+                    //     for(var i=0; i<100;i++){
+                    //         option.series[0].data[0].value++;
+                    //         yuanmei.setOption(option);
+                    //     }
+                    // },1000)
                 })
             }
         };
@@ -8469,39 +8477,57 @@ angular.module('rsc.directive', [])
                         },
                         series: [
                             {
-                                name: '邮件营销',
+                                name: '动力煤',
                                 type: 'line',
                                 stack: '总量',
                                 data: [120, 132, 101, 134, 90, 230, 210]
                             },
                             {
-                                name: '联盟广告',
+                                name: '无烟煤',
                                 type: 'line',
                                 stack: '总量',
                                 data: [220, 182, 191, 234, 290, 330, 310]
                             },
                             {
-                                name: '视频广告',
+                                name: '喷吹煤',
                                 type: 'line',
                                 stack: '总量',
                                 data: [150, 232, 201, 154, 190, 330, 410]
                             },
                             {
-                                name: '直接访问',
+                                name: '炼焦煤',
                                 type: 'line',
                                 stack: '总量',
                                 data: [320, 332, 301, 334, 390, 330, 320]
+                            },
+                            {
+                                name: '原煤',
+                                type: 'line',
+                                stack: '总量',
+                                data: [152, 254, 111, 241, 54, 87, 451]
                             }
                         ]
                     };
-
                     browse.setOption(option);
+
+                    setInterval(function () {
+                        console.log('111', option.series[0].data[0])
+                        for (var i = 1; i < option.series.length; i++) {
+                            for (var j = 0; j < option.series[i].data.length; j++) {
+                                option.series[i].data[6]++;
+                                option.series[i].data[4]++;
+                                option.series[i].data[2]++;
+                                console.log(option.series[i].data[j])
+                                browse.setOption(option);
+                            }
+                        }
+                    }, 30000)
                 })
             }
         };
     }])
     /**
-     * 浏览量
+     * 金额
      */
     .directive("money", ['$http', '$log', function ($http, $log) {
         return {
@@ -8537,72 +8563,59 @@ angular.module('rsc.directive', [])
                             type: 'category',
                             data: [
                                 {
-                                    value: '信用付款',
-                                    textStyle: {
-                                        fontSize: 12,
-                                        color: '#5E86A3'
-                                    }
-                                },{
                                     value: '商业承兑',
                                     textStyle: {
                                         fontSize: 12,
                                         color: '#3069BE'
                                     }
-                                },{
+                                }, {
                                     value: '银行承兑',
                                     textStyle: {
                                         fontSize: 12,
                                         color: '#d48265'
                                     }
-                                },{
-                                    value: '现金付款',
+                                }, {
+                                    value: '现汇结算',
                                     textStyle: {
                                         fontSize: 12,
                                         color: '#54D475'
                                     }
-                                },{
+                                }, {
                                     value: '全部',
                                     textStyle: {
                                         fontSize: 12,
                                         color: '#91c7ae'
                                     }
                                 }
-                                ]
+                            ]
                         },
                         series: [
                             {
                                 type: 'bar',
                                 data: [
                                     {
-                                        value: '19325',
-                                        itemStyle: {
-                                            normal: {
-                                                color: '#5E86A3',
-                                            }
-                                        }
-                                    }, {
-                                        value: '23438',
+                                        value: 23438,
                                         itemStyle: {
                                             normal: {
                                                 color: '#3069BE',
                                             }
                                         }
                                     }, {
-                                        value: '31000',
+                                        value: 31000,
                                         itemStyle: {
                                             normal: {
                                                 color: '#d48265',
                                             }
                                         }
                                     }, {
-                                        value: '121594',
+                                        value: 121594,
                                         itemStyle: {
                                             normal: {
                                                 color: '#54D475',
                                             }
                                         }
                                     }, {
-                                        value: '134141',
+                                        value: 134141,
                                         itemStyle: {
                                             normal: {
                                                 color: '#91c7ae',
@@ -8612,14 +8625,21 @@ angular.module('rsc.directive', [])
                             }
                         ]
                     };
-
                     money.setOption(option);
+                    // setInterval(function () {
+                    //     console.log('111',option.series[0].data[0].value)
+                    //     for(var i=0; i<100;i++){
+                    //         option.series[0].data[0].value++;
+                    //         money.setOption(option);
+                    //     }
+                    //     console.log('111',option.series[0].data[0].value)
+                    // },1000)
                 })
             }
         };
     }])
     /**
-     * 浏览量
+     * 转化
      */
     .directive("change", ['$http', '$log', function ($http, $log) {
         return {
@@ -8648,31 +8668,31 @@ angular.module('rsc.directive', [])
                             containLabel: true
                         },
                         xAxis: {
-                            show:false,
+                            show: false,
                             type: 'category',
                             data: []
 
                         },
                         yAxis: {
-                            show:false,
+                            show: false,
                             type: 'value',
 
                         },
                         series: [{
                             type: 'line',
-                            data: [0, 120, 210, 130, 200,62,0],
+                            data: [0, 120, 210, 130, 200, 62, 0],
                             areaStyle: {
                                 normal: {
 
                                     color: '#DCB42F',
-                                    opacity :0.6,
+                                    opacity: 0.6
                                 }
                             },
                             lineStyle: {
                                 normal: {
 
                                     color: '#DCB42F',
-                                    opacity :0.6,
+                                    opacity: 0.6
                                 }
                             }
                         }]
