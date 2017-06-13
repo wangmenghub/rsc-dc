@@ -8417,7 +8417,7 @@ angular.module('rsc.directive', [])
     .directive("browse", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='browse' style='width: 400px;height: 200px'></div>",
+            template: "<div id='browse' style='width: 400px;height: 150px'></div>",
             scope: {
                 'data': '='
             },
@@ -8509,7 +8509,7 @@ angular.module('rsc.directive', [])
     .directive("money", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='money' style='width: 400px;height: 200px'></div>",
+            template: "<div id='money' style='width: 400px;height: 230px'></div>",
             scope: {
                 'data': '='
             },
@@ -8542,25 +8542,25 @@ angular.module('rsc.directive', [])
                                 {
                                     value: '商业承兑',
                                     textStyle: {
-                                        fontSize: 8,
+                                        fontSize: 6,
                                         color: '#3069BE'
                                     }
                                 }, {
                                     value: '银行承兑',
                                     textStyle: {
-                                        fontSize: 8,
+                                        fontSize: 6,
                                         color: '#d48265'
                                     }
                                 }, {
                                     value: '现汇结算',
                                     textStyle: {
-                                        fontSize: 8,
+                                        fontSize: 6,
                                         color: '#54D475'
                                     }
                                 }, {
                                     value: '全部',
                                     textStyle: {
-                                        fontSize: 8,
+                                        fontSize: 6,
                                         color: '#91c7ae'
                                     }
                                 }
