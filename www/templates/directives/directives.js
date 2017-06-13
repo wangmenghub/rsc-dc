@@ -17,7 +17,8 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('buy');
-                    height.style.height = (window.screen.height + window.screenTop) + 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
+                    // height.style.height = window.screen.height - 200 + 'px';
                     var trade = echarts.init(document.getElementById('buy'));
                     var geoCoordMap = {
                         "海门": [121.15, 31.89],
@@ -693,7 +694,7 @@ angular.module('rsc.directive', [])
     .directive("sell", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='sell' style='width: auto;height:1024px'></div>",
+            template: "<div id='sell' style='width: auto'></div>",
             scope: {
                 'data': '='
             },
@@ -702,8 +703,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('sell');
-                    height.style.height = window.screen.height - 200 + 'px';
-
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
                     var trade = echarts.init(document.getElementById('sell'));
                     var geoCoordMap = {
                         "海门": [121.15, 31.89],
@@ -1381,7 +1381,7 @@ angular.module('rsc.directive', [])
     .directive("pass", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='pass' style='width: auto;height:1024px'></div>",
+            template: "<div id='pass' style='width: auto;'></div>",
             scope: {
                 'data': '='
             },
@@ -1390,7 +1390,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('pass');
-                    height.style.height = window.screen.height - 200 + 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
                     var pass = echarts.init(document.getElementById('pass'));
                     var geoCoordMap = {
                         '上海': [121.4648, 31.2891],
@@ -1708,7 +1708,7 @@ angular.module('rsc.directive', [])
     .directive("car", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='car' style='width: auto;height:1024px'></div>",
+            template: "<div id='car' style='width: auto'></div>",
             scope: {
                 'data': '='
             },
@@ -1717,7 +1717,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('car');
-                    height.style.height = window.screen.height - 200 + 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
                     var car = echarts.init(document.getElementById('car'));
                     var allData = {
                         "citys": [{
@@ -3177,7 +3177,7 @@ angular.module('rsc.directive', [])
     .directive("relation", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='relation' style='width: auto;height:1024px'></div>",
+            template: "<div id='relation' style='width: auto'></div>",
             scope: {
                 'data': '='
             },
@@ -3186,7 +3186,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('relation');
-                    height.style.height = window.screen.height - 200 + 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
                     var relation = echarts.init(document.getElementById('relation'));
                     relation.showLoading();
                     var json = {
@@ -3411,7 +3411,7 @@ angular.module('rsc.directive', [])
     .directive("market", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='market' style='width: auto;height:1024px'></div>",
+            template: "<div id='market' style='width: auto'></div>",
             scope: {
                 'data': '='
             },
@@ -3420,7 +3420,7 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var height = document.getElementById('market');
-                    height.style.height = window.screen.height - 200 + 'px';
+                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
                     var market = echarts.init(document.getElementById('market'));
                     market.showLoading();
 
@@ -8157,7 +8157,7 @@ angular.module('rsc.directive', [])
                     $log.debug('data', $scope.data)
                     var donglimei = echarts.init(document.getElementById('donglimei'));
                     var option = {
-
+                        color: ['#c23531', '#61a0a8', '#d48265'],
                         series: [
                             {
                                 name: '访问来源',
@@ -8167,12 +8167,12 @@ angular.module('rsc.directive', [])
                                 label: {
                                     normal: {
                                         show: false,
-                                        position: 'bottom'
+                                        position: 'center'
                                     },
                                     emphasis: {
                                         show: true,
                                         textStyle: {
-                                            fontSize: '30',
+                                            fontSize: '10',
                                             fontWeight: 'bold'
                                         }
                                     }
@@ -8183,9 +8183,9 @@ angular.module('rsc.directive', [])
                                     }
                                 },
                                 data: [
-                                    {value: 335, name: '直接访问'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
+                                    {value: 335, name: '进行中'},
+                                    {value: 310, name: '已完成'},
+                                    {value: 234, name: '已发布'}
 
 
                                 ]
@@ -8214,7 +8214,7 @@ angular.module('rsc.directive', [])
                     $log.debug('data', $scope.data)
                     var wuyanmei = echarts.init(document.getElementById('wuyanmei'));
                     var option = {
-
+                        color: ['#c23531', '#61a0a8', '#d48265'],
                         series: [
                             {
                                 name: '访问来源',
@@ -8224,12 +8224,12 @@ angular.module('rsc.directive', [])
                                 label: {
                                     normal: {
                                         show: false,
-                                        position: 'bottom'
+                                        position: 'center'
                                     },
                                     emphasis: {
                                         show: true,
                                         textStyle: {
-                                            fontSize: '30',
+                                            fontSize: '10',
                                             fontWeight: 'bold'
                                         }
                                     }
@@ -8240,9 +8240,9 @@ angular.module('rsc.directive', [])
                                     }
                                 },
                                 data: [
-                                    {value: 335, name: '直接访问'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
+                                    {value: 335, name: '进行中'},
+                                    {value: 310, name: '已完成'},
+                                    {value: 234, name: '已发布'}
 
 
                                 ]
@@ -8271,7 +8271,7 @@ angular.module('rsc.directive', [])
                     $log.debug('data', $scope.data)
                     var penchuimei = echarts.init(document.getElementById('penchuimei'));
                     var option = {
-
+                        color: ['#c23531', '#61a0a8', '#d48265'],
                         series: [
                             {
                                 name: '访问来源',
@@ -8281,12 +8281,12 @@ angular.module('rsc.directive', [])
                                 label: {
                                     normal: {
                                         show: false,
-                                        position: 'bottom'
+                                        position: 'center'
                                     },
                                     emphasis: {
                                         show: true,
                                         textStyle: {
-                                            fontSize: '30',
+                                            fontSize: '10',
                                             fontWeight: 'bold'
                                         }
                                     }
@@ -8297,9 +8297,9 @@ angular.module('rsc.directive', [])
                                     }
                                 },
                                 data: [
-                                    {value: 335, name: '直接访问'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
+                                    {value: 335, name: '进行中'},
+                                    {value: 310, name: '已完成'},
+                                    {value: 234, name: '已发布'}
 
 
                                 ]
@@ -8328,7 +8328,7 @@ angular.module('rsc.directive', [])
                     $log.debug('data', $scope.data)
                     var lianjiaomei = echarts.init(document.getElementById('lianjiaomei'));
                     var option = {
-
+                        color: ['#c23531', '#61a0a8', '#d48265'],
                         series: [
                             {
                                 name: '访问来源',
@@ -8338,12 +8338,12 @@ angular.module('rsc.directive', [])
                                 label: {
                                     normal: {
                                         show: false,
-                                        position: 'bottom'
+                                        position: 'center'
                                     },
                                     emphasis: {
                                         show: true,
                                         textStyle: {
-                                            fontSize: '30',
+                                            fontSize: '10',
                                             fontWeight: 'bold'
                                         }
                                     }
@@ -8354,9 +8354,9 @@ angular.module('rsc.directive', [])
                                     }
                                 },
                                 data: [
-                                    {value: 335, name: '直接访问'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
+                                    {value: 335, name: '进行中'},
+                                    {value: 310, name: '已完成'},
+                                    {value: 234, name: '已发布'}
 
 
                                 ]
@@ -8385,7 +8385,7 @@ angular.module('rsc.directive', [])
                     $log.debug('data', $scope.data)
                     var yuanmei = echarts.init(document.getElementById('yuanmei'));
                     var option = {
-
+                        color: ['#c23531', '#61a0a8', '#d48265'],
                         series: [
                             {
                                 name: '访问来源',
@@ -8395,12 +8395,12 @@ angular.module('rsc.directive', [])
                                 label: {
                                     normal: {
                                         show: false,
-                                        position: 'bottom'
+                                        position: 'center'
                                     },
                                     emphasis: {
                                         show: true,
                                         textStyle: {
-                                            fontSize: '30',
+                                            fontSize: '10',
                                             fontWeight: 'bold'
                                         }
                                     }
@@ -8411,9 +8411,9 @@ angular.module('rsc.directive', [])
                                     }
                                 },
                                 data: [
-                                    {value: 335, name: '直接访问'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
+                                    {value: 335, name: '进行中'},
+                                    {value: 310, name: '已完成'},
+                                    {value: 234, name: '已发布'}
 
 
                                 ]
