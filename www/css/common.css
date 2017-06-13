@@ -49,6 +49,9 @@ h6,
   font-size: 11px;
 }
 
+.clearfix {
+  clear: both;
+}
 
 /*背景颜色*/
 
@@ -94,6 +97,7 @@ h6,
 
 .text-yellow {
   color: #efd687;
+  cursor: pointer;
 }
 
 
@@ -103,20 +107,17 @@ h6,
   position: absolute;
 }
 
-.main {}
-
 .main-first {
   text-align: center;
-  /*padding-left: 30px;*/
 }
 
 .main-first h4.fixed {
-  top: 50px;
+  top: 3%;
   padding-left: 30px;
 }
 
 .main-first div.fixed {
-  top: 75px;
+  top: 5%;
   padding-left: 30px;
 }
 
@@ -128,18 +129,13 @@ h6,
   border-left: 3px solid #efd687;
 }
 
-.main-second {
-  padding-right: 30px;
-}
-
 .main-second h4.fixed {
-  top: 215px;
+  top: 20%;
   padding-left: 30px;
 }
 
 .main-second div.fixed {
-  /*top: 190px;*/
-  top: 200px;
+  top: 20%;
   padding-left: 30px;
 }
 
@@ -151,14 +147,12 @@ h6,
 }
 
 .main-third h4.fixed {
-  /*top: 420px;*/
-  top: 415px;
+  top: 40%;
   padding-left: 30px;
 }
 
 .main-third div.fixed {
-  /*top: 420px;*/
-  top: 440px;
+  top: 40%;
   padding-left: 30px;
 }
 
@@ -170,14 +164,12 @@ h6,
 }
 
 .main-fourth h4.fixed {
-  top: 660px;
-  /*top: 700px;*/
+  top: 62%;
   padding-left: 30px;
 }
 
 .main-fourth div.fixed {
-  top: 680px;
-  /*top: 700px;*/
+  top:60%;
   padding-left: 30px;
 }
 
