@@ -8147,10 +8147,10 @@ angular.module('rsc.directive', [])
     .directive("donglimei", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='donglimei' style='width: 100px;height: 100px'></div>",
             scope: {
                 'data': '='
             },
+            templateUrl: 'templates/directives/template/donglimei.html',
             replace: true,
             controller: function ($scope, $ionicLoading) {
                 $scope.$watch('data', function () {
@@ -8532,7 +8532,7 @@ angular.module('rsc.directive', [])
     .directive("money", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='money' style='width: 400px;height: 220px'></div>",
+            template: "<div id='money' style='width: 400px;height: 200px'></div>",
             scope: {
                 'data': '='
             },

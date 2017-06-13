@@ -1,11 +1,11 @@
-<ion-view hide-nav-bar="true" view-title="数据中心">
+<ion-view hide-nav-bar="true" view-title="数据中心" ng-init="vm.init()">
 	<div class="tabs tabs-top bg-deep-blue tabs-top-dc">
 		<a class="tab-item active">煤炭</a>
-		<a class="tab-item " ui-sref="">矿粉</a>
-		<a class="tab-item " ui-sref="">耐火材料</a>
-		<a class="tab-item " ui-sref="">合金</a>
-		<a class="tab-item " ui-sref="">铁合金</a>
-		<a class="tab-item " ui-sref="">钢铁</a>
+		<a class="tab-item " >矿粉</a>
+		<a class="tab-item " >耐火材料</a>
+		<a class="tab-item " >合金</a>
+		<a class="tab-item " >铁合金</a>
+		<a class="tab-item " >钢铁</a>
 	</div>
 	<!--中间内容区-->
 	<ion-content class="has-subheader has-subheader-dc">
@@ -13,7 +13,7 @@
 			<div class="main-first active">
 				<h4 class="fixed text-yellow" style="z-index: 12;">抢单</h4>
 				<div class="fixed fixed-active" style="z-index: 11; ">
-					<donglimei></donglimei>
+					<donglimei data="vm.data"></donglimei>
 					<span class="text-green">动力煤</span>
 				</div>
 				<div class="fixed" style="z-index: 10; left: 90px;">
