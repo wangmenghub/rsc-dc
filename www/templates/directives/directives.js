@@ -8440,7 +8440,7 @@ angular.module('rsc.directive', [])
     .directive("browse", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='browse' style='width: 400px;height: 200px'></div>",
+            template: "<div id='browse' style='width: 400px;height: 150px'></div>",
             scope: {
                 'data': '='
             },
