@@ -11,25 +11,25 @@
 	<ion-content class="has-subheader has-subheader-dc">
 		<div class="main">
 			<div class="main-first active">
-				<h4 class="fixed text-yellow" style="z-index: 12;">抢单</h4>
+				<h4 class="fixed text-yellow" style="z-index: 12;" ng-click="vm.test()">抢单</h4>
 				<div class="fixed fixed-active" style="z-index: 11; ">
-					<donglimei data="vm.data"></donglimei>
+					<donglimei data="vm.donglimei"></donglimei>
 					<span class="text-green">动力煤</span>
 				</div>
 				<div class="fixed" style="z-index: 10; left: 90px;">
-					<wuyanmei></wuyanmei>
+					<wuyanmei data="vm.wuyanmei"></wuyanmei>
 					<span class="text-red">无烟煤</span>
 				</div>
 				<div class="fixed" style="z-index: 9; left: 180px;">
-					<penchuimei></penchuimei>
+					<penchuimei data="vm.penchuimei"></penchuimei>
 					<span class="text-purple">喷吹煤</span>
 				</div>
 				<div class="fixed" style="z-index: 8; left: 270px;">
-					<lianjiaomei></lianjiaomei>
+					<lianjiaomei data="vm.lianjiaomei"></lianjiaomei>
 					<span class="text-blue">炼焦煤</span>
 				</div>
 				<div class="fixed" style="z-index: 7; left: 360px;">
-					<yuanmei></yuanmei>
+					<yuanmei data="vm.yuanmei"></yuanmei>
 					<span class="text-brown">原煤</span>
 				</div>
 			</div>

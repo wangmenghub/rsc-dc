@@ -8181,19 +8181,16 @@ angular.module('rsc.directive', [])
                                     normal: {
                                         show: false
                                     }
-                                },
-                                data: [
-                                    {value: 335, name: '进行中'},
-                                    {value: 310, name: '已完成'},
-                                    {value: 234, name: '已发布'}
-
-
-                                ]
+                                }
                             }
                         ]
                     };
-
+                    option.series[0].data = $scope.data;
                     donglimei.setOption(option);
+                    setInterval(function () {
+                        donglimei.setOption(option);
+                    }, 1000)
+
                 })
             }
         };
@@ -8238,19 +8235,16 @@ angular.module('rsc.directive', [])
                                     normal: {
                                         show: false
                                     }
-                                },
-                                data: [
-                                    {value: 335, name: '进行中'},
-                                    {value: 310, name: '已完成'},
-                                    {value: 234, name: '已发布'}
-
-
-                                ]
+                                }
                             }
                         ]
                     };
-
+                    option.series[0].data = $scope.data;
                     wuyanmei.setOption(option);
+                    setInterval(function () {
+                        wuyanmei.setOption(option);
+                    }, 1000)
+
                 })
             }
         };
@@ -8295,19 +8289,16 @@ angular.module('rsc.directive', [])
                                     normal: {
                                         show: false
                                     }
-                                },
-                                data: [
-                                    {value: 335, name: '进行中'},
-                                    {value: 310, name: '已完成'},
-                                    {value: 234, name: '已发布'}
-
-
-                                ]
+                                }
                             }
                         ]
                     };
-
+                    option.series[0].data = $scope.data;
                     penchuimei.setOption(option);
+                    setInterval(function () {
+                        penchuimei.setOption(option);
+                    }, 1000)
+
                 })
             }
         };
@@ -8352,19 +8343,16 @@ angular.module('rsc.directive', [])
                                     normal: {
                                         show: false
                                     }
-                                },
-                                data: [
-                                    {value: 335, name: '进行中'},
-                                    {value: 310, name: '已完成'},
-                                    {value: 234, name: '已发布'}
-
-
-                                ]
+                                }
                             }
                         ]
                     };
-
+                    option.series[0].data = $scope.data;
                     lianjiaomei.setOption(option);
+                    setInterval(function () {
+                        lianjiaomei.setOption(option);
+                    }, 1000)
+
                 })
             }
         };
@@ -8409,27 +8397,16 @@ angular.module('rsc.directive', [])
                                     normal: {
                                         show: false
                                     }
-                                },
-                                data: [
-                                    {value: 335, name: '进行中'},
-                                    {value: 310, name: '已完成'},
-                                    {value: 234, name: '已发布'}
-
-
-                                ]
+                                }
                             }
                         ]
                     };
-
+                    option.series[0].data = $scope.data;
                     yuanmei.setOption(option);
+                    setInterval(function () {
+                        yuanmei.setOption(option);
+                    }, 1000)
 
-                    // setInterval(function () {
-                    //     console.log('111',option.series[0].data[0].value)
-                    //     for(var i=0; i<100;i++){
-                    //         option.series[0].data[0].value++;
-                    //         yuanmei.setOption(option);
-                    //     }
-                    // },1000)
                 })
             }
         };
@@ -8440,7 +8417,7 @@ angular.module('rsc.directive', [])
     .directive("browse", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='browse' style='width: 400px;height: 150px'></div>",
+            template: "<div id='browse' style='width: 400px;height: 200px'></div>",
             scope: {
                 'data': '='
             },
