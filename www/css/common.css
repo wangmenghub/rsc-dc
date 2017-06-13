@@ -111,12 +111,12 @@ h6,
 }
 
 .main-first h4.fixed {
-  top: 75px;
+  top: 50px;
   padding-left: 30px;
 }
 
 .main-first div.fixed {
-  top: 100px;
+  top: 75px;
   padding-left: 30px;
 }
 
@@ -133,13 +133,13 @@ h6,
 }
 
 .main-second h4.fixed {
-  top: 240px;
+  top: 215px;
   padding-left: 30px;
 }
 
 .main-second div.fixed {
   /*top: 190px;*/
-  top: 250px;
+  top: 200px;
   padding-left: 30px;
 }
 
@@ -152,13 +152,13 @@ h6,
 
 .main-third h4.fixed {
   /*top: 420px;*/
-  top: 470px;
+  top: 415px;
   padding-left: 30px;
 }
 
 .main-third div.fixed {
   /*top: 420px;*/
-  top: 480px;
+  top: 440px;
   padding-left: 30px;
 }
 
@@ -170,14 +170,14 @@ h6,
 }
 
 .main-fourth h4.fixed {
-  /*top: 660px;*/
-  top: 700px;
+  top: 660px;
+  /*top: 700px;*/
   padding-left: 30px;
 }
 
 .main-fourth div.fixed {
-  /*top: 620px;*/
-  top: 700px;
+  top: 680px;
+  /*top: 700px;*/
   padding-left: 30px;
 }
 

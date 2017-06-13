@@ -7,8 +7,7 @@ angular.module('starter.controllers', [])
      * 采购
      */
     .controller('buyCtrl', function ($scope) {
-
-
+        var vm = this.vm = $scope;
     })
     /**
      * 销售
