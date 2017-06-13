@@ -8451,54 +8451,13 @@ angular.module('rsc.directive', [])
                             type: 'value',
                             boundaryGap: [],
                             show: false
-                        },
-                        series: [
-                            {
-                                name: '动力煤',
-                                type: 'line',
-                                stack: '总量',
-                                data: [120, 132, 101, 134, 90, 230, 210]
-                            },
-                            {
-                                name: '无烟煤',
-                                type: 'line',
-                                stack: '总量',
-                                data: [220, 182, 191, 234, 290, 330, 310]
-                            },
-                            {
-                                name: '喷吹煤',
-                                type: 'line',
-                                stack: '总量',
-                                data: [150, 232, 201, 154, 190, 330, 410]
-                            },
-                            {
-                                name: '炼焦煤',
-                                type: 'line',
-                                stack: '总量',
-                                data: [320, 332, 301, 334, 390, 330, 320]
-                            },
-                            {
-                                name: '原煤',
-                                type: 'line',
-                                stack: '总量',
-                                data: [152, 254, 111, 241, 54, 87, 451]
-                            }
-                        ]
-                    };
-                    browse.setOption(option);
-
-                    setInterval(function () {
-                        console.log('111', option.series[0].data[0])
-                        for (var i = 1; i < option.series.length; i++) {
-                            for (var j = 0; j < option.series[i].data.length; j++) {
-                                option.series[i].data[6]++;
-                                option.series[i].data[4]++;
-                                option.series[i].data[2]++;
-                                console.log(option.series[i].data[j])
-                                browse.setOption(option);
-                            }
                         }
-                    }, 30000)
+                    };
+                    option.series = $scope.data;
+                    browse.setOption(option);
+                    setInterval(function () {
+                        browse.setOption(option);
+                    }, 1000)
                 })
             }
         };
