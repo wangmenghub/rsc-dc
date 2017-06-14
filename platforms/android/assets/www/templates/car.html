@@ -1,18 +1,19 @@
 <ion-view hide-nav-bar="true" view-title="数据中心">
 	<!--顶部二级导航-->
-	<div class="tabs-striped tabs-top">
-		<div class="tabs">
-			<a class="tab-item " ui-sref="trade">采购数据</a>
-			<a class="tab-item " ui-sref="trade">销售数据</a>
-			<a class="tab-item " ui-sref="pass">物流数据</a>
-			<a class="tab-item active">司机数据</a>
-			<a class="tab-item " ui-sref="relation">企业关系</a>
-			<a class="tab-item " ui-sref="market">市场分布</a>
-		</div>
+	<div class="tabs tabs-top bg-deep-blue tabs-top-dc">
+		<a class="tab-item active">运输详情</a>
+		<a class="tab-item " ui-sref="">实时定位</a>
 	</div>
-
 	<!--中间内容区-->
-	<ion-content class="has-subheader">
+	<ion-content class="has-subheader has-subheader-dc">
 		<car></car>
 	</ion-content>
+	<div class="tabs tabs-bottom bg-yellow">
+		<a class="tab-item " ui-sref="buy">采购</a>
+		<a class="tab-item">销售</a>
+		<a class="tab-item " ui-sref="pass">物流</a>
+		<a class="tab-item active" ui-sref="car">司机</a>
+		<a class="tab-item " ui-sref="relation">企业关系</a>
+		<a class="tab-item " ui-sref="market">市场分布</a>
+	</div>
 </ion-view>

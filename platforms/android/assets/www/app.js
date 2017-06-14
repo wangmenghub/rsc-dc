@@ -20,14 +20,25 @@ angular.module('starter', ['ionic', 'starter.controllers','rsc.directive'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-            // 交易
-            .state('trade', {
-                url: '/trade',
+            // 采购
+            .state('buy', {
+                url: '/buy',
                 cache:true,
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/trade.html',
-                        controller: 'tradeCtrl'
+                        templateUrl: 'templates/buy.html',
+                        controller: 'buyCtrl'
+                    }
+                }
+            })
+            // 销售
+            .state('sell', {
+                url: '/sell',
+                cache:true,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/sell.html',
+                        controller: 'sellCtrl'
                     }
                 }
             })
@@ -77,5 +88,5 @@ angular.module('starter', ['ionic', 'starter.controllers','rsc.directive'])
             })
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/trade');
+        $urlRouterProvider.otherwise('/buy');
     });
