@@ -7948,7 +7948,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 动力煤
+     * 采购-动力煤
      */
     .directive("donglimei", ['$http', '$log', function ($http, $log) {
         return {
@@ -8002,7 +8002,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 无烟煤
+     * 采购-无烟煤
      */
     .directive("wuyanmei", ['$http', '$log', function ($http, $log) {
         return {
@@ -8056,7 +8056,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 喷吹煤
+     * 采购-喷吹煤
      */
     .directive("penchuimei", ['$http', '$log', function ($http, $log) {
         return {
@@ -8110,7 +8110,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 炼焦煤
+     * 采购-炼焦煤
      */
     .directive("lianjiaomei", ['$http', '$log', function ($http, $log) {
         return {
@@ -8164,7 +8164,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 原煤
+     * 采购-原煤
      */
     .directive("yuanmei", ['$http', '$log', function ($http, $log) {
         return {
@@ -8218,7 +8218,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 浏览量
+     * 采购-浏览量
      */
     .directive("browse", ['$http', '$log', function ($http, $log) {
         return {
@@ -8269,7 +8269,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 金额
+     * 采购-金额
      */
     .directive("money", ['$http', '$log', function ($http, $log) {
         return {
@@ -8350,7 +8350,7 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 转化
+     * 采购-转化
      */
     .directive("change", ['$http', '$log', function ($http, $log) {
         return {
@@ -8364,6 +8364,468 @@ angular.module('rsc.directive', [])
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
                     var change = echarts.init(document.getElementById('change'));
+                    var option = {
+                        color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae'],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '4%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            show: false,
+                            type: 'category',
+                            data: []
+
+                        },
+                        yAxis: {
+                            show: false,
+                            type: 'value',
+
+                        },
+                        series: [{
+                            type: 'line',
+                            areaStyle: {
+                                normal: {
+
+                                    color: '#DCB42F',
+                                    opacity: 0.6
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+
+                                    color: '#DCB42F',
+                                    opacity: 0.6
+                                }
+                            }
+                        }]
+                    };
+
+                    option.series[0].data = $scope.data;
+                    change.setOption(option);
+                    // setInterval(function () {
+                    //     change.setOption(option);
+                    // }, 1000)
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-动力煤
+     */
+    .directive("donglimeiSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            scope: {
+                'data': '='
+            },
+            template: "<div id='donglimei-sell' style='width: 100px;height: 100px'></div>",
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var donglimei = echarts.init(document.getElementById('donglimei-sell'));
+                    var option = {
+                        color: ['#c23531', '#61a0a8', '#d48265'],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '10',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    option.series[0].data = $scope.data;
+                    donglimei.setOption(option);
+                    // setInterval(function () {
+                    //     donglimei.setOption(option);
+                    // }, 1000)
+
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-无烟煤
+     */
+    .directive("wuyanmeiSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='wuyanmei-sell' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var wuyanmei = echarts.init(document.getElementById('wuyanmei-sell'));
+                    var option = {
+                        color: ['#c23531', '#61a0a8', '#d48265'],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '10',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    option.series[0].data = $scope.data;
+                    wuyanmei.setOption(option);
+                    // setInterval(function () {
+                    //     wuyanmei.setOption(option);
+                    // }, 1000)
+
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-喷吹煤
+     */
+    .directive("penchuimeiSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='penchuimei-sell' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var penchuimei = echarts.init(document.getElementById('penchuimei-sell'));
+                    var option = {
+                        color: ['#c23531', '#61a0a8', '#d48265'],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '10',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    option.series[0].data = $scope.data;
+                    penchuimei.setOption(option);
+                    // setInterval(function () {
+                    //     penchuimei.setOption(option);
+                    // }, 1000)
+
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-炼焦煤
+     */
+    .directive("lianjiaomeiSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='lianjiaomei-sell' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var lianjiaomei = echarts.init(document.getElementById('lianjiaomei-sell'));
+                    var option = {
+                        color: ['#c23531', '#61a0a8', '#d48265'],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '10',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    option.series[0].data = $scope.data;
+                    lianjiaomei.setOption(option);
+                    // setInterval(function () {
+                    //     lianjiaomei.setOption(option);
+                    // }, 1000)
+
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-原煤
+     */
+    .directive("yuanmeiSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='yuanmei-sell' style='width: 100px;height: 100px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var yuanmei = echarts.init(document.getElementById('yuanmei-sell'));
+                    var option = {
+                        color: ['#c23531', '#61a0a8', '#d48265'],
+                        series: [
+                            {
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '10',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    option.series[0].data = $scope.data;
+                    yuanmei.setOption(option);
+                    // setInterval(function () {
+                    //     yuanmei.setOption(option);
+                    // }, 1000)
+
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-浏览量
+     */
+    .directive("browseSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='browse-sell' style='width: 400px;height: 150px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var browse = echarts.init(document.getElementById('browse-sell'));
+                    var option = {
+
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: []
+                        },
+                        grid: {
+                            left: '1%',
+                            right: '4%',
+                            bottom: '1%',
+                            containLabel: false,
+
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                            show: false
+                        },
+                        yAxis: {
+                            type: 'value',
+                            boundaryGap: [],
+                            show: false
+                        }
+                    };
+                    option.series = $scope.data;
+                    browse.setOption(option);
+                    // setInterval(function () {
+                    //     browse.setOption(option);
+                    // }, 1000)
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-金额
+     */
+    .directive("moneySell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='money-sell' style='width: 400px;height: 230px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var money = echarts.init(document.getElementById('money-sell'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '4%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            show: false,
+                            type: 'value',
+                            boundaryGap: [0]
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: [
+                                {
+                                    value: '商业承兑',
+                                    textStyle: {
+                                        fontSize: 6,
+                                        color: '#3069BE'
+                                    }
+                                }, {
+                                    value: '银行承兑',
+                                    textStyle: {
+                                        fontSize: 6,
+                                        color: '#d48265'
+                                    }
+                                }, {
+                                    value: '现汇结算',
+                                    textStyle: {
+                                        fontSize: 6,
+                                        color: '#54D475'
+                                    }
+                                }, {
+                                    value: '全部',
+                                    textStyle: {
+                                        fontSize: 6,
+                                        color: '#91c7ae'
+                                    }
+                                }
+                            ]
+                        }
+                    };
+                    option.series = $scope.data;
+                    money.setOption(option);
+                    // setInterval(function () {
+                    //     money.setOption(option);
+                    // }, 1000)
+                })
+            }
+        };
+    }])
+    /**
+     * 销售-转化
+     */
+    .directive("changeSell", ['$http', '$log', function ($http, $log) {
+        return {
+            restrict: "EAC",
+            template: "<div id='change-sell' style='width: 400px;height: 200px'></div>",
+            scope: {
+                'data': '='
+            },
+            replace: true,
+            controller: function ($scope, $ionicLoading) {
+                $scope.$watch('data', function () {
+                    $log.debug('data', $scope.data)
+                    var change = echarts.init(document.getElementById('change-sell'));
                     var option = {
                         color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae'],
                         tooltip: {

@@ -1,64 +1,63 @@
-<ion-view hide-nav-bar="true" view-title="数据中心">
+<ion-view hide-nav-bar="true" view-title="数据中心" ng-init="vm.init()">
 	<div class="tabs tabs-top bg-deep-blue tabs-top-dc">
-		<a class="tab-item active">煤炭</a>
-		<a class="tab-item " ui-sref="">矿粉</a>
-		<a class="tab-item " ui-sref="">耐火材料</a>
-		<a class="tab-item " ui-sref="">合金</a>
-		<a class="tab-item " ui-sref="">铁合金</a>
-		<a class="tab-item " ui-sref="">钢铁</a>
+		<a class="tab-item {{vm.topActive == 'meitan'?'active':''}}" ng-click="vm.meiTan('meitan')">煤炭</a>
+		<a class="tab-item {{vm.topActive == 'kuangfen'?'active':''}}" ng-click="vm.kuangFen('kuangfen')">矿粉</a>
+		<a class="tab-item {{vm.topActive == 'naihuo'?'active':''}}" ng-click="vm.naiHuo('naihuo')">耐火材料</a>
+		<a class="tab-item {{vm.topActive == 'hejin'?'active':''}}" ng-click="vm.heJin('hejin')">合金</a>
+		<a class="tab-item {{vm.topActive == 'tiehejin'?'active':''}}" ng-click="vm.tieHeJin('tiehejin')">铁合金</a>
+		<a class="tab-item {{vm.topActive == 'gangtie'?'active':''}}" ng-click="vm.gangTie('gangtie')">钢铁</a>
 	</div>
 	<!--中间内容区-->
 	<ion-content class="has-subheader has-subheader-dc">
 		<div class="main">
-			<div class="main-first">
-				<h4 class="fixed text-yellow" style="z-index: 12;">抢单</h4>
-				<div class="fixed" style="z-index: 11; left: 20px; ">
-					<donglimei></donglimei>
+			<div class="main-first {{vm.centerActive == 'qiangdan'?'active':''}}">
+				<h4 class="fixed text-yellow" style="z-index: 12;" ng-click="vm.qiangDan('qiangdan')">抢单</h4>
+				<div class="fixed fixed-active" style="z-index: 11; ">
+					<donglimei-sell data="vm.data.donglimei"></donglimei-sell>
 					<span class="text-green">动力煤</span>
 				</div>
-				<div class="fixed" style="z-index: 10; left: 100px;">
-					<wuyanmei></wuyanmei>
+				<div class="fixed" style="z-index: 10; left: 90px;">
+					<wuyanmei-sell data="vm.data.wuyanmei"></wuyanmei-sell>
 					<span class="text-red">无烟煤</span>
 				</div>
 				<div class="fixed" style="z-index: 9; left: 180px;">
-					<penchuimei></penchuimei>
+					<penchuimei-sell data="vm.data.penchuimei"></penchuimei-sell>
 					<span class="text-purple">喷吹煤</span>
 				</div>
-				<div class="fixed" style="z-index: 8; left: 260px;">
-					<lianjiaomei></lianjiaomei>
+				<div class="fixed" style="z-index: 8; left: 270px;">
+					<lianjiaomei-sell data="vm.data.lianjiaomei"></lianjiaomei-sell>
 					<span class="text-blue">炼焦煤</span>
 				</div>
-				<div class="fixed" style="z-index: 7; left: 340px;">
-					<yuanmei></yuanmei>
+				<div class="fixed" style="z-index: 7; left: 360px;">
+					<yuanmei-sell data="vm.data.yuanmei"></yuanmei-sell>
 					<span class="text-brown">原煤</span>
 				</div>
 			</div>
 			<!--浏览量-->
-			<div class="main-second">
-				<h4 class="fixed text-yellow" style="z-index: 6;"> 浏览 180</h4>
+			<div class="main-second {{vm.centerActive == 'liulan'?'active':''}}">
+				<h4 class="fixed text-yellow" style="z-index: 6;" ng-click="vm.liuLan('liulan')"> 浏览 180</h4>
 				<div class="fixed" style="z-index: 5;">
-					<browse></browse>
+					<browse-sell data="vm.data.liulan"></browse-sell>
 				</div>
 			</div>
 			<!--交易金额-->
-			<div class="main-third">
-				<h4 class="fixed text-yellow" style="z-index: 4;"> 金额 108万</h4>
+			<div class="main-third {{vm.centerActive == 'jine'?'active':''}}">
+				<h4 class="fixed text-yellow" style="z-index: 4;" ng-click="vm.jine('jine')"> 金额 108万</h4>
 				<div class="fixed" style="z-index: 3;">
-					<money></money>
+					<money-sell data="vm.data.jine"></money-sell>
 				</div>
 			</div>
 			<!--转化-->
-			<div class="main-fourth">
-				<h4 class="fixed text-yellow" style="z-index: 2;"> 转化</h4>
+			<div class="main-fourth {{vm.centerActive == 'zhuanhua'?'active':''}}">
+				<h4 class="fixed text-yellow" style="z-index: 2;" ng-click="vm.zhuanHua('zhuanhua')"> 转化</h4>
 				<div class="fixed" style="z-index: 1;">
-					<change></change>
+					<change-sell data="vm.data.zhuanhua"></change-sell>
 				</div>
 			</div>
 		</div>
 		<div style="z-index: 0;">
-			<sell></sell>
+			<sell data="vm.data.map"></sell>
 		</div>
-
 	</ion-content>
 	<div class="tabs tabs-bottom bg-yellow">
 		<a class="tab-item " ui-sref="buy">采购</a>
