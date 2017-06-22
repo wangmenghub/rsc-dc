@@ -1,15 +1,18 @@
 <ion-view hide-nav-bar="true" view-title="数据中心">
 	<!--顶部二级导航-->
-
+	<div class="tabs tabs-top bg-deep-blue tabs-top-dc">
+		<a class="tab-item {{vm.topActive == 'meitan'?'active':''}}" ng-click="vm.meiTan('meitan')">煤炭</a>
+		<a class="tab-item {{vm.topActive == 'kuangfen'?'active':''}}" ng-click="vm.kuangFen('kuangfen')">矿粉</a>
+	</div>
 
 	<!--中间内容区-->
-	<ion-content class="">
+	<ion-content class="has-subheader has-subheader-dc">
 		<pass></pass>
 	</ion-content>
 	<div class="tabs tabs-bottom bg-yellow">
 		<a class="tab-item " ui-sref="buy">采购</a>
-		<a class="tab-item">销售</a>
-		<a class="tab-item active" ui-sref="pass">物流</a>
+		<a class="tab-item " ui-sref="sell">销售</a>
+		<a class="tab-item active">物流</a>
 		<a class="tab-item " ui-sref="car">司机</a>
 		<a class="tab-item " ui-sref="relation">企业关系</a>
 		<a class="tab-item " ui-sref="market">市场分布</a>
