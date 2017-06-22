@@ -7,7 +7,44 @@
 
 	<!--中间内容区-->
 	<ion-content class="has-subheader has-subheader-dc">
-		<pass></pass>
+		<div>
+			<div class="main-first {{vm.centerActive == 'qiangdan'?'active':''}}">
+				<h4 class="fixed text-yellow" style="z-index: 12;" >运输量:87,000吨</h4>
+				<h4 class="fixed text-yellow" style="z-index: 13;" >运输量:87,000吨</h4>
+				<!--<div class="fixed fixed-active" style="z-index: 11; ">-->
+					<!--<donglimei-sell data="vm.data.donglimei"></donglimei-sell>-->
+					<!--<span class="text-green">动力煤</span>-->
+				<!--</div>-->
+				<!--<div class="fixed" style="z-index: 10; left: 90px;">-->
+					<!--<wuyanmei-sell data="vm.data.wuyanmei"></wuyanmei-sell>-->
+					<!--<span class="text-red">无烟煤</span>-->
+				<!--</div>-->
+				<!--<div class="fixed" style="z-index: 9; left: 180px;">-->
+					<!--<penchuimei-sell data="vm.data.penchuimei"></penchuimei-sell>-->
+					<!--<span class="text-purple">喷吹煤</span>-->
+				<!--</div>-->
+				<!--<div class="fixed" style="z-index: 8; left: 270px;">-->
+					<!--<lianjiaomei-sell data="vm.data.lianjiaomei"></lianjiaomei-sell>-->
+					<!--<span class="text-blue">炼焦煤</span>-->
+				<!--</div>-->
+				<!--<div class="fixed" style="z-index: 7; left: 360px;">-->
+					<!--<yuanmei-sell data="vm.data.yuanmei"></yuanmei-sell>-->
+					<!--<span class="text-brown">原煤</span>-->
+				<!--</div>-->
+			</div>
+		</div>
+		<div style="z-index: 0;">
+			<pass></pass>
+		</div>
+
+		<div>
+			<div class="main-first">
+				<h3 class="fixed text-yellow" style="z-index: 12;" >213123123123123</h3>
+				<div class="fixed" style="z-index: 12;" >
+					<bing-zhuang-tu-pass></bing-zhuang-tu-pass>
+				</div>
+			</div>
+		</div>
 	</ion-content>
 	<div class="tabs tabs-bottom bg-yellow">
 		<a class="tab-item " ui-sref="buy">采购</a>

@@ -2496,7 +2496,7 @@ angular.module('starter.controllers', [])
 
         //初始化
         vm.init = function () {
-
+            
         }
     })
     /**
