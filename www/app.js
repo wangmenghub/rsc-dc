@@ -64,6 +64,17 @@ angular.module('starter', ['ionic', 'starter.controllers','rsc.directive'])
                     }
                 }
             })
+            // 司机
+            .state('carLeft', {
+                url: '/carLeft',
+                cache:true,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/carleft.html',
+                        controller: 'carLeftCtrl'
+                    }
+                }
+            })
             // 企业关系
             .state('relation', {
                 url: '/relation',

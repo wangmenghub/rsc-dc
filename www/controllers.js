@@ -2511,6 +2511,17 @@ angular.module('starter.controllers', [])
         }
     })
     /**
+     * 司机
+     */
+    .controller('carLeftCtrl', function ($scope, $stateParams) {
+        var vm = $scope.vm = this;
+
+        //初始化
+        vm.init = function () {
+
+        }
+    })
+    /**
      * 企业关系
      */
     .controller('relationCtrl', function ($scope, $stateParams) {
