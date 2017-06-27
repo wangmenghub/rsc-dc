@@ -69,40 +69,40 @@ angular.module('starter.controllers', [])
                 }
             ],
             jine: [
-            {
-                type: 'bar',
-                data: [
-                    {
-                        value: 23438,
-                        itemStyle: {
-                            normal: {
-                                color: '#3069BE',
+                {
+                    type: 'bar',
+                    data: [
+                        {
+                            value: 23438,
+                            itemStyle: {
+                                normal: {
+                                    color: '#3069BE',
+                                }
                             }
-                        }
-                    }, {
-                        value: 31000,
-                        itemStyle: {
-                            normal: {
-                                color: '#d48265',
+                        }, {
+                            value: 31000,
+                            itemStyle: {
+                                normal: {
+                                    color: '#d48265',
+                                }
                             }
-                        }
-                    }, {
-                        value: 121594,
-                        itemStyle: {
-                            normal: {
-                                color: '#54D475',
+                        }, {
+                            value: 121594,
+                            itemStyle: {
+                                normal: {
+                                    color: '#54D475',
+                                }
                             }
-                        }
-                    }, {
-                        value: 134141,
-                        itemStyle: {
-                            normal: {
-                                color: '#91c7ae',
+                        }, {
+                            value: 134141,
+                            itemStyle: {
+                                normal: {
+                                    color: '#91c7ae',
+                                }
                             }
-                        }
-                    }]
-            }
-        ],
+                        }]
+                }
+            ],
             zhuanhua: [0, 120, 210, 130, 200, 62, 0],
             map: [
                 {name: "海门", value: 90},
@@ -2496,7 +2496,7 @@ angular.module('starter.controllers', [])
 
         //初始化
         vm.init = function () {
-            
+
         }
     })
     /**
