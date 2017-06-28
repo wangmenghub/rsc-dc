@@ -8926,18 +8926,18 @@ angular.module('rsc.directive', [])
         };
     }])
     /**
-     * 物流-订单状态-饼状图
+     * 物流-运输状态
      */
-    .directive("bingZhuangTuPass", ['$http', '$log', function ($http, $log) {
+    .directive("yunShuZhuangTai", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='change-pass' style='width: 100px;height: 100px'></div>",
+            template: "<div id='yun-shu-zhuang-tai' style='width: 100px;height: 100px'></div>",
             scope: {
                 'data': '='
             },
             replace: true,
             controller: function ($scope, $ionicLoading) {
-                var change = echarts.init(document.getElementById('change-pass'));
+                var change = echarts.init(document.getElementById('yun-shu-zhuang-tai'));
                 var option = {
                     tooltip: {
                         trigger: 'item',
@@ -8989,17 +8989,17 @@ angular.module('rsc.directive', [])
                         }
                     ]
                 };
+                change.setOption(option);
             }
         };
-        change.setOption(option);
     }])
     /**
-     * 物流-订单状态-饼状图
+     * 物流-运输量
      */
-    .directive("carRight", ['$http', '$log', function ($http, $log) {
+    .directive("yunShuLiang", ['$http', '$log', function ($http, $log) {
         return {
             restrict: "EAC",
-            template: "<div id='car-right' style='width: auto'></div>",
+            template: "<div id='yun-shu-liang' style='width: 300px;height: 500px'></div>",
             scope: {
                 'data': '='
             },
@@ -9007,62 +9007,61 @@ angular.module('rsc.directive', [])
             controller: function ($scope, $ionicLoading) {
                 $scope.$watch('data', function () {
                     $log.debug('data', $scope.data)
-                    var height = document.getElementById('car-right');
-                    height.style.height = (window.screen.height + window.screenTop) + 5 + 'px';
-                    var carRight = echarts.init(document.getElementById('car-right'));
+                    var yunShuLiang = echarts.init(document.getElementById('yun-shu-liang'));
+
+                    var hours = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+                    var days = ['煤炭', '矿粉', '耐火材料','合金', '铁合金', '钢铁'];
+
+                    var data = [
+                        [0,0,5],[0,1,9],[0,2,3],[0,3,2],[0,4,4],[0,5,3],[0,6,7],
+                        [1,0,4],[1,1,7],[1,2,5],[1,3,0],[1,4,5],[1,5,0],[1,6,5],
+                        [2,0,1],[2,1,4],[2,2,7],[2,3,5],[2,4,5],[2,5,0],[2,6,5],
+                        [3,0,7],[3,1,3],[3,2,4],[3,3,7],[3,4,5],[3,5,0],[3,6,5],
+                        [4,0,1],[4,1,3],[4,2,0],[4,3,4],[4,4,7],[4,5,5],[4,6,5],
+                        [5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,4],[5,5,7],[5,6,5],
+                    ];
 
                     var option = {
                         tooltip: {
-                            trigger: 'item',
-                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                            position: 'top'
                         },
-                        legend: {
-                            orient: 'vertical',
-                            x: 'left',
-                            data: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他']
-                        },
-                        series: [
-                            {
-                                name: '访问来源',
-                                type: 'pie',
-                                selectedMode: 'single',
-                                radius: [0, '30%'],
-
-                                label: {
-                                    normal: {
-                                        position: 'inner'
-                                    }
-                                },
-                                labelLine: {
-                                    normal: {
-                                        show: false
-                                    }
-                                },
-                                data: [
-                                    {value: 335, name: '直达', selected: true},
-                                    {value: 679, name: '营销广告'},
-                                    {value: 1548, name: '搜索引擎'}
-                                ]
-                            },
-                            {
-                                name: '访问来源',
-                                type: 'pie',
-                                radius: ['40%', '55%'],
-
-                                data: [
-                                    {value: 335, name: '直达'},
-                                    {value: 310, name: '邮件营销'},
-                                    {value: 234, name: '联盟广告'},
-                                    {value: 135, name: '视频广告'},
-                                    {value: 1048, name: '百度'},
-                                    {value: 251, name: '谷歌'},
-                                    {value: 147, name: '必应'},
-                                    {value: 102, name: '其他'}
-                                ]
-                            }
-                        ]
+                        title: [],
+                        singleAxis: [],
+                        series: []
                     };
-                    carRight.setOption(option);
+
+                    echarts.util.each(days, function (day, idx) {
+                        option.title.push({
+                            textBaseline: 'middle',
+                            top: (idx + 0.5) * 100 / 7 + '%',
+                            text: day
+                        });
+                        option.singleAxis.push({
+                            left: 150,
+                            type: 'category',
+                            boundaryGap: false,
+                            data: hours,
+                            top: (idx * 100 / 7 + 5) + '%',
+                            height: (100 / 7 - 10) + '%',
+                            axisLabel: {
+                                interval: 0
+                            }
+                        });
+                        option.series.push({
+                            singleAxisIndex: idx,
+                            coordinateSystem: 'singleAxis',
+                            type: 'scatter',
+                            data: [],
+                            symbolSize: function (dataItem) {
+                                return dataItem[1] * 4;
+                            }
+                        });
+                    });
+
+                    echarts.util.each(data, function (dataItem) {
+                        option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                    });
+                    yunShuLiang.setOption(option);
                 })
             }
         };
